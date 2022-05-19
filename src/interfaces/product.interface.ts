@@ -1,8 +1,8 @@
 interface IProduct {
-  id: number;
+  id?: number;
   name: string;
-  amaount: string;
-  otherId: number;
+  amount: string;
+  otherId?: number;
 }
 
 export default IProduct;

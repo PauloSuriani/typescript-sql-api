@@ -9,10 +9,8 @@ export default class ProductServices {
     return products;
   };
 
-  /*    public create = async (name: string, quantity: number): Promise<IProduct> => {
-    // const productsWithSameName = await this.model.getByName(name);
-    // if (productsWithSameName.length > 0) throw new Error('Product already exists.');
-    const product = await this.productModels.create(name, quantity);
+  public create = async (name: string, amount: string): Promise<IProduct> => {
+    const product = await this.productModels.create(name, amount);
     return product;
-  };    */
+  };    
 }

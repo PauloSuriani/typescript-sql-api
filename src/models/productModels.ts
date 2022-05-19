@@ -1,4 +1,4 @@
-// import { ResultSetHeader } from 'mysql2/promise';
+import { ResultSetHeader } from 'mysql2/promise';
 import connection from './connection';
 import IProduct from '../interfaces/product.interface';
 
@@ -10,12 +10,12 @@ export default class ProductModel {
     return product as IProduct[];
   };
 
-/*  public create = async (name: string, quantity: number): Promise<IProduct> => {
-    const [product] = await conn.execute<ResultSetHeader>(
-      'INSERT INTO StoreManager.products (name, quantity) VALUES (?, ?);',
-      [name, quantity],
+  public create = async (name: string, amount: string): Promise<IProduct> => {
+    const [newProduct] = await connection.execute<ResultSetHeader>(
+      'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?);',
+      [name, amount],
     );
   
-    return { id: product.insertId, name, quantity };
-  };    */
+    return { id: newProduct.insertId, name, amount };
+  };    
 }
