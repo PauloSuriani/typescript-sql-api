@@ -1,9 +1,8 @@
 import { Response, Request, NextFunction } from 'express';
-import IProduct from '../interfaces/product.interface';
 
 export default class ValidationsProduct {
   public productNameVerify = (req: Request, res: Response, next: NextFunction) => {
-    const { name } = req.body as IProduct;
+    const { name } = req.body;
     if (!name) {
       return res.status(400).json({ message: '"name" is required' });
     }
@@ -18,7 +17,7 @@ export default class ValidationsProduct {
   };
 
   public productAmountVerify = (req: Request, res: Response, next: NextFunction) => {
-    const { amount } = req.body as IProduct;
+    const { amount } = req.body;
     if (!amount || amount === '') return res.status(400).json({ message: '"amount" is required' });
 
     if ((typeof amount) !== 'string') {
