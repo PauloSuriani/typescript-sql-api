@@ -8,7 +8,7 @@ export default class UserServices {
   async (username: string, classe: string, level: number, password:string): Promise<string> => {
     const newUserId = await this.userModels.create(username, classe, level, password);
 
-    const userToken = sign({ id: newUserId }, 'novocodsecreto', { expiresIn: '30m' });
+    const userToken = sign({ id: newUserId }, 'novocodsecreto', { expiresIn: '15m' });
     return userToken;
   };    
 }

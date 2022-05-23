@@ -13,24 +13,14 @@ export default class ProductServices {
     
     return orders.map((order) => (
       {
-        ...order,
+        id: order.id,
+        userId: order.userId,
         productsIds: products
-          .filter((product) => product.orderId === order.id)
-          .map((filteredProducts) => filteredProducts.id),
+          .map((product) => { 
+            if (product.orderId === order.id) return product.id;
+            return 0;
+          }).filter(Boolean),
       }
     ));
   };
 }
-
-// [
-//     {
-//       "id": 1,
-//       "userId": 2,
-//       "productsIds": [1, 2]
-//     },
-//     {
-//       "id": 2,
-//       "userId": 2,
-//       "productsIds": [3, 4]
-//     }
-//   ]
