@@ -1,7 +1,7 @@
 import { ResultSetHeader } from 'mysql2/promise';
 import connection from './connection';
 
-export default class ProductModel {
+export default class UserModel {
   public create = 
   async (username: string, classe: string, level: number, password:string): Promise<number> => {
     const [newUser] = await connection.execute<ResultSetHeader>(

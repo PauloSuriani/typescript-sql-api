@@ -2,7 +2,7 @@ interface IProduct {
   id?: number;
   name: string;
   amount: string;
-  otherId?: number;
+  orderId?: number;
 }
 
 export default IProduct;
