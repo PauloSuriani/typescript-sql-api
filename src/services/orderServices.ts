@@ -1,7 +1,7 @@
 import OrderModels from '../models/orderModels';
 import ProductModels from '../models/productModels';
 
-export default class ProductServices {
+export default class OrderServices {
   public orderModels = new OrderModels();
 
   public productModels = new ProductModels();
@@ -11,7 +11,7 @@ export default class ProductServices {
 
     const products = await this.productModels.getAll();
     
-    return orders.map((order) => (
+    const ordersObject = orders.map((order) => (
       {
         id: order.id,
         userId: order.userId,
@@ -22,5 +22,7 @@ export default class ProductServices {
           }).filter(Boolean),
       }
     ));
+
+    return ordersObject;
   };
 }

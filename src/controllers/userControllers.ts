@@ -1,3 +1,4 @@
+// import { HttpStatus } from 'http-status-codes';
 import { Request, Response, NextFunction } from 'express';
 import UserServices from '../services/userServices';
 
@@ -9,9 +10,11 @@ export default class UserController {
     const { username, classe, level, password } = req.body; 
     try {
       const newUserToken = await this.userServices.create(username, classe, level, password);
+      // return res.status(HttpStatus.CREATED).json({ token: newUserToken });
       return res.status(201).json({ token: newUserToken });
     } catch (error: unknown) {
       if (error instanceof Error && error.message.includes('User already exists')) {
+        // return res.status(StatusCodes.CONFLICT).json({ message: error.message });
         return res.status(409).json({ message: error.message });
       }
       next(error);

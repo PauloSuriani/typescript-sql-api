@@ -16,6 +16,12 @@ export default class ProductModel {
       [name, amount],
     );
   
-    return { id: newProduct.insertId, name, amount };
+    const newProductInserted = { 
+      id: newProduct.insertId, 
+      name, 
+      amount, 
+    };
+
+    return newProductInserted;
   };    
 }

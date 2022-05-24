@@ -6,7 +6,6 @@ export default class OrderController {
 
   public getAll = async (_req: Request, res: Response, _next: NextFunction): Promise<Response> => {
     const orders = await this.orderServices.getAll();
-    console.log('orders: ', orders);
     return res.status(200).json(orders);
   }; 
 }
